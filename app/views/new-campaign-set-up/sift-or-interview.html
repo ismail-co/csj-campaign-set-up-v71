@@ -26,7 +26,7 @@ Check your answers – {{ serviceName }} – GOV.UK Prototype Kit
 
       <div class="govuk-form-group">
         <h2 class="govuk-heading-m">At sift?</h2>
-{{ data['behave1']}}
+
            {% set array = data['behave1'] %}
           {%- for items in array| slice(1) %}
           <div class="govuk-checkboxes-{{ loop.index }}" data-module="govuk-checkboxes" name="siftbehaviours">
