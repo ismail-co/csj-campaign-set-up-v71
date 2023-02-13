@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Create a job advert – Civil service jobs – GOV.UK Prototype Kit
+{% endblock %}
+{% block beforeContent %}
+{{ govukPhaseBanner({
+  tag: {
+    text: "alpha"
+  },
+  html: 'Your <a href"">feedback</a> will help us to improve.'
+})}}
+{% include 'includes/user-header.html' %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:history.go(-1)"
+}) }}
+{% endblock %}
+{% block content %}
+
+<form class="form" action="grade-select" method="post" novalidate>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">Tell us about the role</h1>
+      <div class="govuk-form-group govuk-input--width-30">
+        <label for="autocomplete-default" class="govuk-label--m">What is the job title?</label>
+        <div id="jobtitle" class="autocomplete-wrapper"></div>
+      </div>
+
+      <button class="govuk-button" data-module="govuk-button">Continue</button>
+      <p><a href="../sign-in">Save and sign out</a></p>
+      <script src="/public/javascripts/temp-copy.js"></script>
+      <script src="/public/javascripts/profession.js"></script>
+      <script src="/public/javascripts/temp.js"></script>
+    </FORM>
+    {% endblock %}

@@ -1,0 +1,65 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Check your answers – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukPhaseBanner({
+  tag: {
+    text: "alpha"
+  },
+  html: 'Your <a href"">feedback</a> will help us to improve.'
+})}}
+{% include 'includes/user-header.html' %}
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+<span class="govuk-caption-l">Advert set up</span>
+    <h1 class="govuk-heading-l">About the role
+    </h1>
+          <form class="form" action="essential-criteria" method="post">
+<p>This information will be shown on the advert.</p>
+    {{ govukCharacterCount({
+  name: "person-spec",
+  id: "person-spec",
+  maxwords: 150,
+  label: {
+    text: "What are you looking for in a candidate?",
+    classes: "govuk-label--m",
+    isPageHeading: false
+  },
+  value: data['person-spec']
+}) }}
+
+{{ govukCharacterCount({
+name: "respon",
+id: "respon",
+  maxwords: 150,
+label: {
+text: "What are the responsibilities of the role?",
+classes: "govuk-label--m",
+isPageHeading: false
+},
+hint: {
+text: "Include common tasks and expectations."
+},
+value: data['respon']
+}) }}
+
+<button class="govuk-button" data-module="govuk-button">Continue</button>
+
+{{ govukButton({
+  text: "Preview advert",
+  classes: "govuk-button--secondary",
+  href: "preview-advert"
+}) }}
+{% include 'includes/return-task-list.html' %}
+
+</form>
+</div>
+</div>
+{% endblock %}
