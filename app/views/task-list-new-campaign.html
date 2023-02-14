@@ -203,12 +203,10 @@ Create a job – Civil service jobs – GOV.UK Prototype Kit
                       </a>
                     </span>
 
-                    {% if data['experience3']|length >= 1 %}
+                    {% if data['experience2']|length >= 1 %}
                     <strong class="govuk-tag govuk-tag app-task-list__tag" id="financial-evidence-status">Completed</strong>
-                    {% elif data['experience2']|length >= 1 %}
-
-                    <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="financial-evidence-status">In progress</strong>
                     {% elif data['experience1']|length >= 1 %}
+
                     <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="financial-evidence-status">In progress</strong>
                     {% else %}
                     <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="financial-evidence-status">Not started</strong>
@@ -224,7 +222,6 @@ Create a job – Civil service jobs – GOV.UK Prototype Kit
                     </span>
 
                     {% if data['technical1']|length >= 1 %}
-
                     <strong class="govuk-tag govuk-tag app-task-list__tag" id="financial-evidence-status">Completed</strong>
                     {% else %}
                     <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="financial-evidence-status">Not started</strong>
