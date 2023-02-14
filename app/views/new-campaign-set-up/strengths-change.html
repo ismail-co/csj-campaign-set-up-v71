@@ -20,10 +20,12 @@ Check your answers – {{ serviceName }} – GOV.UK Prototype Kit
   <div class="govuk-grid-column-two-thirds">
 <span class="govuk-caption-l">Sifting and selection methods                                                                                                               </span>
     <h1 class="govuk-heading-l">Select strengths to interview</h1>
-    <form class="form" action="technical" method="post">
+    <form class="form" action="/strengths-change-handler" method="post">
     <p>The following strengths have been recommended based on the behaviours selected. Select up to 4 total.</p>
 
 
+
+    {% if data['interviewbehaviours'].length >= 1 %}
 
 
 
@@ -67,7 +69,8 @@ Check your answers – {{ serviceName }} – GOV.UK Prototype Kit
      {%- endfor %}
      </div>
      {%- endfor %}
-
+     {% else %}
+     {% endif %}
 
 
 

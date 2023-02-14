@@ -26,12 +26,12 @@ Check your answers – {{ serviceName }} – GOV.UK Prototype Kit
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">Based in the UK</dt>
         <dd class="govuk-summary-list__value">{{ data['ussk']}}</dd>
-        <dd class="govuk-summary-list__actions"><a href="locations?edit=true">Change<span class="govuk-visually-hidden"> job title</span></a></dd>
+        <dd class="govuk-summary-list__actions"><a href="locations?edit2=true">Change<span class="govuk-visually-hidden"> job title</span></a></dd>
       </div>
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">Office-based or remote?</dt>
         <dd class="govuk-summary-list__value">{{ data['uk']}}</dd>
-        <dd class="govuk-summary-list__actions"><a href="locations?edit=true">Change<span class="govuk-visually-hidden"> grade</span></a></dd>
+        <dd class="govuk-summary-list__actions"><a href="locations?edit2=true">Change<span class="govuk-visually-hidden"> grade</span></a></dd>
       </div>
       {% if  data['uk'] !== "Remote" %}
       {% include 'includes/location-reveal.html' %}
@@ -49,8 +49,20 @@ Check your answers – {{ serviceName }} – GOV.UK Prototype Kit
 
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">Working pattern</dt>
-        <dd class="govuk-summary-list__value">{{ data['working-pattern']}}</dd>
-        <dd class="govuk-summary-list__actions"><a href="locations?edit=true">Change<span class="govuk-visually-hidden"> job title</span></a></dd>
+        <dd class="govuk-summary-list__value">
+
+          {% if data['working-pattern'].length > 0 %}
+          {% for items in data['working-pattern'] | slice(1) %}
+          <ul class="govuk-list govuk-list--bullet {{ loop.index }}">
+            {% for item in items %}
+            <li>{{ item }}</li>
+            {% endfor %}
+          </ul>
+          {% endfor %}
+          {% else %}
+          {% endif %}
+        </dd>
+        <dd class="govuk-summary-list__actions"><a href="contract-details?edit4=true">Change<span class="govuk-visually-hidden"> job title</span></a></dd>
       </div>
 
     </dl>
@@ -60,7 +72,7 @@ Check your answers – {{ serviceName }} – GOV.UK Prototype Kit
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">Salary</dt>
         <dd class="govuk-summary-list__value">£{{ data['cost']}} per annum</dd>
-        <dd class="govuk-summary-list__actions"><a href="grades?edit=true">Change<span class="govuk-visually-hidden"> department</span></a></dd>
+        <dd class="govuk-summary-list__actions"><a href="grades?edit5=true">Change<span class="govuk-visually-hidden"> department</span></a></dd>
       </div>
       {% if  data['allowances'] == "yes" %}
       {% include 'includes/noextras.html' %}
@@ -84,7 +96,7 @@ Check your answers – {{ serviceName }} – GOV.UK Prototype Kit
             </li>
           </ul>
         </dd>
-        <dd class="govuk-summary-list__actions"><a href="#">Change<span class="govuk-visually-hidden"> number</span></a></dd>
+        <dd class="govuk-summary-list__actions"><a href="benefits?edit6=true">Change<span class="govuk-visually-hidden"> number</span></a></dd>
       </div>
     </dl>
 
@@ -107,7 +119,7 @@ Check your answers – {{ serviceName }} – GOV.UK Prototype Kit
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">Clearance required </dt>
         <dd class="govuk-summary-list__value">{{ data['bpss-correct']}}</dd>
-        <dd class="govuk-summary-list__actions"><a href="#">Change<span class="govuk-visually-hidden"> profession</span></a></dd>
+        <dd class="govuk-summary-list__actions"><a href="reserved-status">Change<span class="govuk-visually-hidden"> profession</span></a></dd>
       </div>
     </dl>
 

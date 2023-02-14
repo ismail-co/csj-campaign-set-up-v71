@@ -16,7 +16,7 @@ Check your answers – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 {% block content %}
 
-<form class="form" action="contract-details" method="post">
+<form class="form" action="/locations-2-handler" method="post">
 <div id="blah" class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <span class="govuk-caption-l">Contract information</span>
@@ -25,7 +25,7 @@ Check your answers – {{ serviceName }} – GOV.UK Prototype Kit
 
     <div id="fir" class="govuk-form-group govuk-input--width-30">
           <label for="autocomplete-default" class="govuk-label--m">Location</label>
-          <div id="locations2" class="autocomplete-wrapper"></div>
+          <div id="locations" class="autocomplete-wrapper"></div>
 
         </div>
 
@@ -71,5 +71,6 @@ Check your answers – {{ serviceName }} – GOV.UK Prototype Kit
 </div>
 <script src="/public/javascripts/accessible-autocomplete.js"></script>
 <script src="/public/javascripts/locations2.js"></script>
+<script src="/public/javascripts/locations.js"></script>
 
 {% endblock %}

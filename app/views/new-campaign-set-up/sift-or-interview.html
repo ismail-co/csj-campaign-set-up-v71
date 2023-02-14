@@ -21,12 +21,13 @@ Check your answers – {{ serviceName }} – GOV.UK Prototype Kit
 <span class="govuk-caption-l">Sifting and selection methods</span>
   <h1 class="govuk-heading-l">What behaviours will you assess?</h1>
   <p class="govuk-body govuk-!-margin-bottom-2">Candidates will provide up to 250 words per behaviour. Select all that apply.</p>
-  <form class="form" action="strengths-change" method="post">
+  <form class="form" action="/sift-or-interview-handler" method="post">
 
 
       <div class="govuk-form-group">
         <h2 class="govuk-heading-m">At sift?</h2>
 
+          {% if data['behave1'].length >= 1 %}
            {% set array = data['behave1'] %}
           {%- for items in array| slice(1) %}
           <div class="govuk-checkboxes-{{ loop.index }}" data-module="govuk-checkboxes" name="siftbehaviours">
@@ -37,11 +38,13 @@ Check your answers – {{ serviceName }} – GOV.UK Prototype Kit
               {%- endfor %}
             </div>
             {%- endfor %}
+            {% else %}
+            {% endif %}
           </div>
 
           <div class="govuk-form-group">
             <h2 class="govuk-heading-m">At interview?</h2>
-
+              {% if data['behave1'].length >= 1 %}
                {% set array = data['behave1'] %}
               {%- for items in array| slice(1) %}
               <div class="govuk-checkboxes-{{ loop.index }}" data-module="govuk-checkboxes" name="interviewbehaviours">
@@ -52,6 +55,8 @@ Check your answers – {{ serviceName }} – GOV.UK Prototype Kit
                   {%- endfor %}
                 </div>
                 {%- endfor %}
+                {% else %}
+                {% endif %}
               </div>
 
 

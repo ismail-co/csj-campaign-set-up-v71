@@ -40,7 +40,7 @@ Check your answers – {{ serviceName }} – GOV.UK Prototype Kit
 <span class="govuk-caption-l">Contract information</span>
     <h1 class="govuk-heading-l">Contract details</h1>
 
-<form class="form" action="grades" method="post">
+<form class="form" action="/contract-details-handler" method="post">
     {{ govukRadios({
     id: "contract",
     name: "contract",
@@ -149,25 +149,6 @@ Check your answers – {{ serviceName }} – GOV.UK Prototype Kit
   ]
   }) }}
 
-  {{ govukCheckboxes({
-  id: "negotiable",
-  name: "negotiable",
-  classes: "govuk-checkboxes--small",
-  fieldset: {
-    legend: {
-      text: "Check the box if this is negotiable.",
-      isPageHeading: false,
-      classes: "govuk-fieldset__legend--s"
-    }
-  },
-  items: [
-    {
-      value: "negotiable",
-      text: "negotiable",
-      checked: checked("negotiable", "negotiable")
-    }
-      ]
-    }) }}
 
         <button class="govuk-button" data-module="govuk-button">Continue</button>
 
