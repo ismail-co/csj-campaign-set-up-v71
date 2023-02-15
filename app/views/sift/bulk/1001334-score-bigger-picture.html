@@ -22,7 +22,7 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
 <span class="govuk-caption-l">1001234</span>
-<h1 class="govuk-heading-l">Score applications</h1>
+<h1 class="govuk-heading-xl">Score applications</h1>
 <h2 class="govuk-heading-m">Seeing the Big Picture</h2>
 </div>
 </div>
@@ -641,7 +641,7 @@ value and meet the diverse needs of all stakeholders.</p>
               name: "feedback"
               }) }}
 
-            <p><a href="task-list">Save and return to tasklist</a></p>
+
             {% from "govuk/components/pagination/macro.njk" import govukPagination %}
 
             {{ govukPagination({
@@ -672,4 +672,5 @@ value and meet the diverse needs of all stakeholders.</p>
   href: ""
 }) }}
 
+          <p><a href="task-list">Save and return to tasklist</a></p>
 {% endblock %}

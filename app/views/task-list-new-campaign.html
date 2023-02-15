@@ -18,7 +18,41 @@ Create a job – Civil service jobs – GOV.UK Prototype Kit
 {% endblock %}
 {% block content %}
 
-
+{% set comp = "Vacancy incomplete" %}{% set num = 0 %}
+{% if data['num-posts']|length >= 1 %}{% set num = 1 %}{% endif %}
+{% if data['num-posts']|length >= 1 %}{% set num = 1 %}{% endif %}
+{% if data['team-detail']|length >= 1 %}{% set num = 2 %}{% endif %}
+{% if data['uk'] == "Remote" %}{% set num = 3 %}{% endif %}
+{% if data['loc2-viewed']|length >= 1 %}{% set num = 3 %}{% endif %}
+{% if data['working-pattern']|length >= 1 %}{% set num = 4 %}{% endif %}
+{% if data['benefits-viewed']|length >= 1 %}{% set num = 5 %}{% endif %}
+{% if data['contact']|length >= 1 %}{% set num = 6 %}{% endif %}
+{% if data['updates']|length >= 1 %}{% set num = 6 %}{% endif %}
+{% if data['bpss-correct']|length >= 1 %}{% set num = 7 %}{% endif %}
+{% if data['respon']|length >= 1 %}{% set num = 8 %}{% endif %}
+{% if data['experience2']|length >= 1 %}{% set num = 9 %}{% endif %}
+{% if data['technical1']|length >= 1 %}{% set num = 10 %}{% endif %}
+{% if data['pre-sift-viewed']|length >= 1 %}{% set num = 11 %}{% endif %}
+{% if data['ass-methods']|length >= 1 %}{% set num = 12 %}{% endif %}
+{% if data['howsift']|length >= 1 %}{% set num = 13 %}{% endif %}
+{% if data['interview-assessments']|length >= 1 %}{% set num = 14 %}{% endif %}
+{% if data['what-assessments']|length >= 1 %}{% set num = 14 %}{% endif %}
+{% if data['tests']|length >= 1 %}{% set num = 15 %}{% endif %}
+{% if data['selsiftexp']|length >= 1 %}{% set num = 16 %}{% endif %}
+{% if data['selinterviewexp']|length >= 1 %}{% set num = 16 %}{% endif %}
+{% if data['interviewbehaviours']|length >= 1 %}{% set num = 17 %}{% endif %}
+{% if data['siftbehaviours']|length >= 1 %}{% set num = 17 %}{% endif %}
+{% if data['selsiftskills']|length >= 1 %}{% set num = 18 %}{% endif %}
+{% if data['selinterviewskills']|length >= 1 %}{% set num = 18 %}{% endif %}
+{% if data['who-can-apply']|length >= 1 %}{% set num = 19 %}{% endif %}
+{% if data['additional-assessments']|length >= 1 %}{% set num = 20 %}{% endif %}
+{% if data['approval-status'] == "Yes - approved" %}{% set num = 21 %}{% endif %}
+{% if data['reserve-list-required']|length >= 1 %}{% set num = 22 %}{% endif %}
+{% if data['attraction']|length >= 1 %}{% set num = 23 %}{% endif %}
+{% if data['panelist3']|length >= 1 %}{% set num = 24 %}{% endif %}
+{% if data['advert-time']|length >= 1 %}{% set num = 25 %}{% endif %}
+{% if data['reviewer']|length >= 1 %}{% set num = 26 %}{% endif %}
+{% if data['submitted'] == "true" %}{% set num = 27 %}{% set comp = "Vacancy complete" %}{% endif %}
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
@@ -27,8 +61,9 @@ Create a job – Civil service jobs – GOV.UK Prototype Kit
       Create a vacancy
     </h1>
 
-    <h2 class="govuk-heading-s govuk-!-margin-bottom-2">Vacancy incomplete</h2>
-    <p class="govuk-body govuk-!-margin-bottom-7">You have completed 0 of 17 sections.</p>
+
+    <h2 class="govuk-heading-s govuk-!-margin-bottom-2">{{ comp }}</h2>
+    <p class="govuk-body govuk-!-margin-bottom-7">You have completed {{ num }} of 27 sections.</p>
 
     <ol class="app-task-list">
       <li>
@@ -46,7 +81,6 @@ Create a job – Civil service jobs – GOV.UK Prototype Kit
 
             {% if data['num-posts']|length >= 1 %}
             <strong class="govuk-tag govuk-tag app-task-list__tag" id="financial-evidence-status">Completed</strong>
-
             {% elif data['grade']|length >= 1 %}
             <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="financial-evidence-status">In progress</strong>
             {% else %}
@@ -66,7 +100,6 @@ Create a job – Civil service jobs – GOV.UK Prototype Kit
 
             {% if data['team-detail']|length >= 1 %}
             <strong class="govuk-tag govuk-tag app-task-list__tag" id="financial-evidence-status">Completed</strong>
-
             {% elif data['business-area']|length >= 1 %}
             <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="financial-evidence-status">In progress</strong>
             {% elif data['prof']|length >= 1 %}
@@ -90,10 +123,8 @@ Create a job – Civil service jobs – GOV.UK Prototype Kit
 
               {% if data['uk'] == "Remote" %}
               <strong class="govuk-tag govuk-tag app-task-list__tag" id="financial-evidence-status">Completed</strong>
-
               {% elif data['loc2-viewed']|length >= 1 %}
               <strong class="govuk-tag govuk-tag app-task-list__tag" id="financial-evidence-status">Completed</strong>
-
               {% elif data['ussk']|length >= 1 %}
               <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="financial-evidence-status">In progress</strong>
               {% elif data['uk']|length >= 1 %}
@@ -110,7 +141,6 @@ Create a job – Civil service jobs – GOV.UK Prototype Kit
 
                 {% if data['working-pattern']|length >= 1 %}
                 <strong class="govuk-tag govuk-tag app-task-list__tag" id="financial-evidence-status">Completed</strong>
-
                 {% elif data['contract']|length >= 1 %}
                 <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="financial-evidence-status">In progress</strong>
                 {% elif data['fta']|length >= 1 %}
@@ -131,7 +161,6 @@ Create a job – Civil service jobs – GOV.UK Prototype Kit
 
                   {% if data['benefits-viewed']|length >= 1 %}
                   <strong class="govuk-tag govuk-tag app-task-list__tag" id="financial-evidence-status">Completed</strong>
-
                   {% else %}
                   <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="financial-evidence-status">Not started</strong>
                   {% endif %}
@@ -144,10 +173,10 @@ Create a job – Civil service jobs – GOV.UK Prototype Kit
                     <a href="/new-campaign-set-up/contact-details" aria-describedby="list-convictions-status">
                       Contact details</a>
                     </span>
-
-                    {% if data['updates']|length >= 1 %}
+                    {% if data['contact']|length >= 1 %}
                     <strong class="govuk-tag govuk-tag app-task-list__tag" id="financial-evidence-status">Completed</strong>
-
+                    {% elif data['updates']|length >= 1 %}
+                    <strong class="govuk-tag govuk-tag app-task-list__tag" id="financial-evidence-status">Completed</strong>
                     {% elif data['their-email']|length >= 1 %}
                     <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="financial-evidence-status">In progress</strong>
                     {% elif data['update-detail']|length >= 1 %}
@@ -165,7 +194,6 @@ Create a job – Civil service jobs – GOV.UK Prototype Kit
 
                       {% if data['bpss-correct']|length >= 1 %}
                       <strong class="govuk-tag govuk-tag app-task-list__tag" id="financial-evidence-status">Completed</strong>
-
                       {% else %}
                       <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="financial-evidence-status">Not started</strong>
                       {% endif %}
@@ -188,7 +216,6 @@ Create a job – Civil service jobs – GOV.UK Prototype Kit
                     {% if data['respon']|length >= 1 %}
                     <strong class="govuk-tag govuk-tag app-task-list__tag" id="financial-evidence-status">Completed</strong>
                     {% elif data['person-spec']|length >= 1 %}
-
                     <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="financial-evidence-status">In progress</strong>
                     {% else %}
                     <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="financial-evidence-status">Not started</strong>
@@ -206,7 +233,6 @@ Create a job – Civil service jobs – GOV.UK Prototype Kit
                     {% if data['experience2']|length >= 1 %}
                     <strong class="govuk-tag govuk-tag app-task-list__tag" id="financial-evidence-status">Completed</strong>
                     {% elif data['experience1']|length >= 1 %}
-
                     <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="financial-evidence-status">In progress</strong>
                     {% else %}
                     <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="financial-evidence-status">Not started</strong>
@@ -312,7 +338,6 @@ Create a job – Civil service jobs – GOV.UK Prototype Kit
                         </a>
                       </span>
                       {% if data['tests']|length >= 1 %}
-
                       <strong class="govuk-tag govuk-tag app-task-list__tag" id="financial-evidence-status">Completed</strong>
                       {% else %}
                       <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="financial-evidence-status">Not started</strong>
@@ -328,7 +353,6 @@ Create a job – Civil service jobs – GOV.UK Prototype Kit
                         </a>
                       </span>
                       {% if data['selinterviewexp']|length >= 1 %}
-
                       <strong class="govuk-tag govuk-tag app-task-list__tag" id="financial-evidence-status">Completed</strong>
                       {% elif data['selsiftexp']|length >= 1 %}
                       <strong class="govuk-tag govuk-tag app-task-list__tag" id="financial-evidence-status">Completed</strong>
@@ -344,10 +368,8 @@ Create a job – Civil service jobs – GOV.UK Prototype Kit
                         </a>
                       </span>
                       {% if data['interviewbehaviours']|length >= 1 %}
-
                       <strong class="govuk-tag govuk-tag app-task-list__tag" id="financial-evidence-status">Completed</strong>
                       {% elif data['siftbehaviours']|length >= 1 %}
-
                       <strong class="govuk-tag govuk-tag app-task-list__tag" id="financial-evidence-status">Completed</strong>
                       {% elif data['behave1']|length >= 1 %}
                       <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="financial-evidence-status">In progress</strong>
@@ -359,15 +381,13 @@ Create a job – Civil service jobs – GOV.UK Prototype Kit
 
                     <li class="app-task-list__item">
                       <span class="app-task-list__task-name">
-                        <a href="/new-campaign-set-up/behaviours" aria-describedby="read-declaration-status">
+                        <a href="/new-campaign-set-up/technical" aria-describedby="read-declaration-status">
                           Technical skills at sift and interview
                         </a>
                       </span>
                       {% if data['selsiftskills']|length >= 1 %}
-
                       <strong class="govuk-tag govuk-tag app-task-list__tag" id="financial-evidence-status">Completed</strong>
                       {% elif data['selinterviewskills']|length >= 1 %}
-
                       <strong class="govuk-tag govuk-tag app-task-list__tag" id="financial-evidence-status">Completed</strong>
                       {% else %}
                       <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="financial-evidence-status">Not started</strong>
@@ -381,7 +401,6 @@ Create a job – Civil service jobs – GOV.UK Prototype Kit
                         </a>
                       </span>
                       {% if data['additional-assessments']|length >= 1 %}
-
                       <strong class="govuk-tag govuk-tag app-task-list__tag" id="financial-evidence-status">Completed</strong>
                       {% else %}
                       <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="financial-evidence-status">Not started</strong>
@@ -500,7 +519,7 @@ Create a job – Civil service jobs – GOV.UK Prototype Kit
                             </span>
                             {% if data['reviewer']|length >= 1 %}
 
-                            <strong class="govuk-tag govuk-tag app-task-list__tag" id="financial-evidence-status">Completed</strong>            {% elif data['advert-time']|length >= 1 %}
+                            <strong class="govuk-tag govuk-tag app-task-list__tag" id="financial-evidence-status">Completed</strong>
                             {% else %}
                             <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="financial-evidence-status">Not started</strong>
                             {% endif %}
